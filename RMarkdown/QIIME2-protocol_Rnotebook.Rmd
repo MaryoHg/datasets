@@ -1,12 +1,27 @@
 ---
 title: "`QIIME2` tutorial: analyzing a demultiplex library of paired-end sequences from the V4 16S rRNA gene"
+author: "Mario Hernández-Guzmán - CICESE"
 output:
   html_document:
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
     df_print: paged
-  pdf_document: default
+    theme: united
+    highlight: tango  
 ---
 
-# 1. Importando secuencias crudas a `qiime2`
+```{r}
+# environment settings
+set.seed(123999); options(scipen = 1e3)
+pacman::p_load(tidyverse, phyloseq, RColorBrewer, patchwork)
+ggplot2::theme_set(theme_bw() + theme(text = element_text(size = 12, color = "black"),
+                                      panel.grid = element_blank()))
+```
+
+
+# 1. Importando mis artefactos de `qiime2` a un objeto `phyloseq`
 
 El primer paso para inicar el protocolo que `qiime2` es importar las lecturas crudas (del inglés _raw sequences_) a un artefacto de la misma herramienta.
 Para esto, necesitamos la misma función (`qiime tools import`) pero diferentes argumentos que son específicos dependiendo el tipo de librería y estado de los datos a importar.
@@ -14,11 +29,20 @@ Para esto, necesitamos la misma función (`qiime tools import`) pero diferentes 
 En este caso, estamos importando una librería
 
 ```{bash, eval = FALSE}
-$ qiime tools import \
-	--type 'SampleData[PairedEndSequencesWithQuality]' \
-	--input-path /Users/mario/Desktop/metabaR/qiime2/raw/ \
-	--input-format CasavaOneEightSingleLanePerSampleDirFmt \
-	--output-path data/demux.qza
+## Step a. Importing artifacts
+	ps_raw <- qiime2R::qza_to_phyloseq (
+		features = "data/table-nochim-nochloro-nomito.qza", # frequency table qza
+		taxonomy = "data/taxonomy.qza",                     # taxonomy file qza
+		metadata = "data/MappingFile_Clara_Barcelos.txt",   # metadata
+		tree = "data/rooted-tree.qza")                      # rooted-tree
+        ps_raw
+```
 
+## 1.1. Resumen de mi objeto `phyloseq`: `microbiome::`
+
+Con la paquetería `microbiome`, me permito ver el resumen de mi proyecto.
+
+```{r, eval=F}
+microbiome::summarize_phyloseq(ps_raw)
 ```
 
