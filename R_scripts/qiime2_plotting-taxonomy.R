@@ -4,11 +4,7 @@
 ## Working with table with Mitochondria and Chloroplast filtered
 
 ## 0. Environment settings ----
-set.seed(123999); options(scipen = 1e3)
-pacman::p_load(tidyverse, phyloseq, RColorBrewer, patchwork)
-        # ggplot2 settings:
-ggplot2::theme_set(theme_bw() + theme(text = element_text(size = 12, color = "black"),
-                                      panel.grid = element_blank()))
+source('../Dropbox/R_functions/plots-settings-mar-24_08_24.R')
 
 ## 1. Cargamos nuestros archivos producto de QIIME2 ----
 
@@ -109,7 +105,7 @@ ggplot2::theme_set(theme_bw() + theme(text = element_text(size = 12, color = "bl
 	
 	
 	# more colors ----
-	c("#A6D854", "#B3CDE3", "#FDB462", "#66C2A5", "#666666", "#BF5B17",
+mariocolors <- 	c("#A6D854", "#B3CDE3", "#FDB462", "#66C2A5", "#666666", "#BF5B17",
 	  "#984EA3", "#999999", "#FFFF99", "#FCCDE5", "#6A3D9A", "#DECBE4",
 	  "#33A02C", "#A65628", "#8DA0CB", "#CCEBC5", "#FED9A6", "#8DD3C7",
 	  "#FBB4AE", "#CCEBC5", "#BEBADA", "#FC8D62", "#FDBF6F", "#FFFF99",
