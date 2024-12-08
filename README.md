@@ -10,6 +10,7 @@ Los datos en este repositorio son para el curso que se llevará acabo del 09 al 
 ## Accesos importantes: Programas a emplear en el curso
 
 [R project](https://www.r-project.org/)
+
 [RStudio (Posit)](https://posit.co/download/rstudio-desktop/)
 
 ---
