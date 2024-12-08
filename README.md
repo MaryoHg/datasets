@@ -1,7 +1,15 @@
 # Información
 
-Los datos en este repositorio corresponden a la librería demultiplexada (empleando qiime2) disponible en SRA:
+Los datos en este repositorio son para el curso que se llevará acabo del 09 al 11 de diciembre de 2024 en la *Universidad Politécnica del Golfo*, titulado:
 
-- [SRR9162917](https://www.ncbi.nlm.nih.gov/sra/SRX5935862[accn]): Actividad de clase
+"Introducción a R y RStudio: Manejo de base de datos, gráficos y análisis estadísticos".
+
+---
 
 
+## Accesos importantes: Programas a emplear en el curso
+
+[R project](https://www.r-project.org/)
+[RStudio (Posit)](https://posit.co/download/rstudio-desktop/)
+
+---
